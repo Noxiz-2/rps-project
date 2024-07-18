@@ -14,4 +14,27 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-console.log(getComputerChoice())
+console.log(getComputerChoice());
+
+
+
+
+
+function getHumanChoice() {
+    let humanChoice = prompt('Pick rock, paper or scissors').toLowerCase();
+
+
+    if (humanChoice === 'rock' || humanChoice === 'paper' || humanChoice === 'scissors') {
+        alert('wise move');
+    } else {
+        alert('invalid');
+    }
+
+    return humanChoice;
+}
+
+console.log(getHumanChoice());
+
+
+
+
