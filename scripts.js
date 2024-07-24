@@ -16,10 +16,6 @@ function getComputerChoice() {
 
 
 
-
-
-
-
 function getHumanChoice() {
     let humanChoice = prompt('Pick rock, paper or scissors').toLowerCase();
 
@@ -28,7 +24,6 @@ function getHumanChoice() {
     alert('Invalid choice, please pick rock, paper, or scissors');
     return getHumanChoice();
     }
-    
 
     return humanChoice;
     console.log(humanChoice);
@@ -37,9 +32,7 @@ function getHumanChoice() {
 
 
 
-
-
-let humanScore = 0;
+/*let humanScore = 0;
 let computerScore = 0; 
 
 
@@ -62,13 +55,55 @@ function playRound(theHumanChoice, theComputerChoice) {
             console.log(`human score: ${humanScore}`)
         };
 
-}
- 
-        
+}     
 
 const theHumanChoice = getHumanChoice();
 const theComputerChoice = getComputerChoice();
-playRound(theHumanChoice, theComputerChoice);
+playRound(theHumanChoice, theComputerChoice); */
 
 
 
+
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0; 
+
+
+
+function playRound(theHumanChoice, theComputerChoice) {
+    console.log(`Human choice: ${theHumanChoice}`);
+    console.log(`Computer choice: ${theComputerChoice}`);
+    
+    
+
+        if (theComputerChoice === theHumanChoice) {
+        console.log('It is a tie');
+        } else if (theComputerChoice === 'paper' && theHumanChoice === 'rock' || theComputerChoice === 'rock' && theHumanChoice === 'scissors' || theComputerChoice ==='scissors' && theHumanChoice === 'paper'){
+            computerScore = computerScore + 1;
+            console.log('you lose');
+            console.log(`computer score = ${computerScore}`);
+        } else if (theComputerChoice === 'paper' && theHumanChoice === 'scissors' || theComputerChoice === 'rock' && theHumanChoice === 'paper' || theComputerChoice ==='scissors' && theHumanChoice === 'rock') {
+            humanScore = humanScore + 1;
+            console.log('you win');
+            console.log(`human score: ${humanScore}`)
+        };
+
+}   
+
+
+    for (i = 0; i < 5; i++) {
+        const theHumanChoice = getHumanChoice();
+    const theComputerChoice = getComputerChoice();
+    playRound(theHumanChoice, theComputerChoice);
+    };
+
+
+    if (humanScore > computerScore) {
+        alert('you won')
+    } else {
+        alert('booboo')
+    };
+    
+}
+
+playGame();
