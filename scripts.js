@@ -10,11 +10,11 @@ function getComputerChoice() {
 
         
     }
-
     return computerChoice;
 }
 
-console.log(getComputerChoice());
+
+
 
 
 
@@ -24,17 +24,51 @@ function getHumanChoice() {
     let humanChoice = prompt('Pick rock, paper or scissors').toLowerCase();
 
 
-    if (humanChoice === 'rock' || humanChoice === 'paper' || humanChoice === 'scissors') {
-        alert('wise move');
-    } else {
-        alert('invalid');
+    if (humanChoice !== 'rock' && humanChoice !== 'paper' && humanChoice !== 'scissors') {
+    alert('Invalid choice, please pick rock, paper, or scissors');
+    return getHumanChoice();
     }
+    
 
     return humanChoice;
+    console.log(humanChoice);
 }
 
-console.log(getHumanChoice());
 
+
+
+
+
+let humanScore = 0;
+let computerScore = 0; 
+
+
+
+function playRound(theHumanChoice, theComputerChoice) {
+    console.log(`Human choice: ${theHumanChoice}`);
+    console.log(`Computer choice: ${theComputerChoice}`);
+    
+    
+
+        if (theComputerChoice === theHumanChoice) {
+        console.log('It is a tie');
+        } else if (theComputerChoice === 'paper' && theHumanChoice === 'rock' || theComputerChoice === 'rock' && theHumanChoice === 'scissors' || theComputerChoice ==='scissors' && theHumanChoice === 'paper'){
+            computerScore = computerScore + 1;
+            console.log('you lose');
+            console.log(`computer score = ${computerScore}`);
+        } else if (theComputerChoice === 'paper' && theHumanChoice === 'scissors' || theComputerChoice === 'rock' && theHumanChoice === 'paper' || theComputerChoice ==='scissors' && theHumanChoice === 'rock') {
+            humanScore = humanScore + 1;
+            console.log('you win');
+            console.log(`human score: ${humanScore}`)
+        };
+
+}
+ 
+        
+
+const theHumanChoice = getHumanChoice();
+const theComputerChoice = getComputerChoice();
+playRound(theHumanChoice, theComputerChoice);
 
 
 
